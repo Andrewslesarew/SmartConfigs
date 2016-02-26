@@ -1,5 +1,3 @@
 node_modules/
 .idea/
-public/components/
-public/css/
-public/build/
+public/
