@@ -1,0 +1,21 @@
+#table-wrapper
+   .filter.tools.pull-right
+      | Фильтр
+      input.search-query(ng-model='filterStr')
+   .tools.pull-left
+      a.btn.btn-success(href='#/new') Создать новую запись
+   table.table.table-striped
+      thead
+         tr
+            th(ng-repeat='head in tablehead') {{head.title}}
+      tbody
+         tr(ng-repeat='item in items | filterEx:tablehead:filterStr')
+            td
+               a(href='#/edit/{{item.id}}') {{item.title}}
+            td {{item.category|list:categories}}
+            td {{item.answerer|list:answerers}}
+            td {{item.author}}
+            td {{item.created}}
+            td {{item.answered}}
+            td
+               span.disable-item(style="color:{{['red','green'][+item.shown]}};", ng-click='disableItem()') {{['выкл','вкл'][+item.shown]}}
