@@ -15,9 +15,9 @@ var files = {
       'config/**/*.js',
       '*.js'
     ],
-    public: ['public/js/**/*.js']
+    public: ['app/js/**/*.js']
   },
-  sass: ['public/sass/**/*.scss']
+  sass: ['app/sass/**/*.scss']
 };
 
 // Code quality
