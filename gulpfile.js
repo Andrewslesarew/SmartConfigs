@@ -35,14 +35,14 @@ gulp.task('lint', function () {
 // Build
 
 gulp.task('sass', function () {
-  gulp.src(['public/sass/*.scss', 'public/sass/**/*.scss'])
+  gulp.src(['app/sass/*.scss', 'app/sass/**/*.scss'])
     .pipe(sass())
     .pipe(concat('styles.css'))
     .pipe(gulp.dest('./public/build/css'));
 });
 
 gulp.task('scripts', function () {
-  gulp.src(['public/js/**/*.js', 'public/js/*.js'])
+  gulp.src(['app/js/**/*.js', 'app/js/*.js'])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('./public/build/js'))
 });
