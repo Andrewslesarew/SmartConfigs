@@ -1,13 +1,14 @@
 doctype html
-html(lang='ru')
+html(lang='ru', ng-app='configApp')
    head
       meta(charset='UTF-8')
       meta(name='viewport', content='width=device-width')
       title= title
-      link(rel='stylesheet', href='/css/styles.css')
+      link(rel='stylesheet', href='/build/css/styles.css')
    body
       .container
          block content
-      if pageScript
-         script(data-main='/js/pages/#{pageScript}', src='/components/requirejs/require.js')
-         script(src='/js/requirejs_config.js')
+         script(src='/components/angular/angular.js')
+         script(src='/components/angular-resource/angular-resource.js')
+         script(src='/components/angular-route/angular-route.js')
+         script(src='/build/js/scripts.js')

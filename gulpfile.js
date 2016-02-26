@@ -5,6 +5,7 @@ var $ = require('gulp-load-plugins')();
 var stylish = require('jshint-stylish');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var jade = require('gulp-jade');
 
 var files = {
   scripts: {
@@ -36,11 +37,25 @@ gulp.task('lint', function () {
 gulp.task('sass', function () {
   gulp.src(['public/sass/*.scss', 'public/sass/**/*.scss'])
     .pipe(sass())
-    .pipe(concat('style.css'))
-    .pipe(gulp.dest('./public/css'));
+    .pipe(concat('styles.css'))
+    .pipe(gulp.dest('./public/build/css'));
 });
 
-gulp.task('build', ['lint', 'sass']);
+gulp.task('scripts', function () {
+  gulp.src(['public/js/**/*.js', 'public/js/*.js'])
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest('./public/build/js'))
+});
+
+//Jade
+
+gulp.task('templates', function () {
+  gulp.src(['./app/views/*.jade', './app/views/**/*.jade'])
+    .pipe(jade())
+    .pipe(gulp.dest('./public/templates'));
+});
+
+gulp.task('build', ['lint', 'sass', 'templates', 'scripts']);
 
 // Development
 
@@ -50,7 +65,7 @@ gulp.task('watch', ['build'], function () {
   gulp.watch(files.scripts.server, $.developServer.restart);
   gulp.watch(files.schemas, $.developServer.restart);
 
-  gulp.watch(files.sass, ['sass']);
+  gulp.watch(files.sass, ['sass', 'templates', 'scripts']);
 });
 
 gulp.task('default', ['watch']);
