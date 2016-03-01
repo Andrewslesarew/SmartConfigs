@@ -1,2 +1,15 @@
-div
-  h3 {{ mainCtrl.message }}
+.col-sm-4(ng-repeat='actor in mainCtrl.actors')
+  .item__extended-preview-container.item__status(class="{{ actor.status }}")
+    .item__element.item__title {{ actor.title }}
+    .item__element.item__description {{ actor.description }}
+
+    .item__element.item__note_container
+      img.item__note.icon(src="http://icons.iconarchive.com/icons/custom-icon-design/mono-business-2/16/calendar-icon.png")
+      .item__note.text {{ actor.addingDate | date : 'dd MMMM yyyy' }}
+    .item__element.item__note_container
+      img.item__note.icon(src="http://icons.iconarchive.com/icons/designbolts/seo/16/Time-Management-icon.png")
+      .item__note.text {{ actor.liveTime | date : 'HH:mm' }}
+    .item__footer-container
+      .item__footer(ng-click="mainCtrl.toStar(actor)") {{ actor.starred ? t : f }}
+      .item__footer e2
+      .item__footer-notification start3

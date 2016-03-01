@@ -1,0 +1,91 @@
+@font-face {
+  font-family: ActorsFont;
+  src: url('../fonts/Matias.otf'); /* Путь к файлу со шрифтом */
+}
+
+.item__extended-preview-container {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #aaa;
+  margin: 1px;
+  padding: 5px 0 0 0;
+  font-family: ActorsFont;
+}
+
+.item__status {
+  border-left-style: solid;
+  border-left-width: 4px;
+  border-left-color: gray;
+}
+
+.item__status.problems {
+  border-left-color: red;
+}
+
+.item__status.warning {
+  border-left-color: yellow;
+}
+
+.item__status.normal {
+  border-left-color: green;
+}
+
+.item__element {
+  word-wrap: break-word;
+  margin: 0 10px;
+}
+
+.item__title {
+  font-size: 22px;
+  height: 24px;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.item__description {
+  font-size: 14px;
+  color: gray;
+  height: 56px;
+  overflow: hidden;
+}
+
+.item__note_container {
+  padding: 2px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.item__note {
+  display: inline-block;
+}
+
+.item__note.icon {
+  max-height: inherit;
+  margin-right: 10px;
+}
+
+.item__note.text {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.item__footer-container {
+  background-color: #ccc;
+  height: 20px;
+  overflow: hidden;
+}
+
+.item__footer {
+  border: 1px solid #aaa;
+  border-right-width: 0px;
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  float: right;
+}
+
+.item__footer-notification {
+  display: inline-block;
+  float: left;
+  padding: 0px 5px;
+}
