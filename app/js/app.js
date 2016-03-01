@@ -3,7 +3,7 @@
 var appModule = angular.module('configApp', ['ngRoute', 'config.services','config.filters'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/main', {template: 'templates/main.html', controller: MainCtrl})
+      .when('/main', {templateUrl: 'templates/main.html', controller: MainCtrl, controllerAs: 'mainCtrl'})
       .otherwise({redirectTo: '/main'});
   }]);
 
