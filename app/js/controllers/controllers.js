@@ -21,6 +21,6 @@ function MainCtrl($scope) {
       }
   );
   me.toStar = function (element) {
-    element.starred = true;
+    element.starred = !element.starred;
   };
 }

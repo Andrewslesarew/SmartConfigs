@@ -82,6 +82,11 @@
   width: 20px;
   text-align: center;
   float: right;
+  overflow: hidden;
+}
+
+.item__footer-img {
+  height: inherit;
 }
 
 .item__footer-notification {
