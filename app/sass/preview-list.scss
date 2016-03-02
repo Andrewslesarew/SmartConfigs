@@ -71,26 +71,38 @@
 
 .item__footer-container {
   background-color: #ccc;
-  height: 20px;
   overflow: hidden;
+  vertical-align: middle;
 }
 
 .item__footer {
-  border: 1px solid #aaa;
-  border-right-width: 0px;
+  border: 0 solid #aaa;
+  border-left-width: 1px;
   display: inline-block;
-  width: 20px;
+  height: 30px;
+  width: 40px;
   text-align: center;
   float: right;
   overflow: hidden;
+  padding: 3px 0;
 }
 
 .item__footer-img {
-  height: inherit;
+  max-height: 24px;
 }
 
-.item__footer-notification {
+.item__footer-notification_item {
   display: inline-block;
+  padding-right: 5px;
+}
+
+.item__footer.notification {
   float: left;
-  padding: 0px 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: initial;
+}
+
+.item__footer-notification_text{
+  font-size: medium;
 }
