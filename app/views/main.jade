@@ -1,11 +1,15 @@
 .col-sm-12
   .item__tabs-container
-    .item__tab(class='{{ key }} checked-{{ mainCtrl.possibleStatuses[key] == mainCtrl.actualStatus }}' ng-repeat='key in mainCtrl.getPossibleStatusKeys()' ng-click='mainCtrl.setActualStatus(mainCtrl.possibleStatuses[key])')
+    .item__tab(
+                class='{{ mainCtrl.possibleStatuses[key].type }} checked-{{ mainCtrl.possibleStatuses[key] == mainCtrl.actualStatus }}'
+                ng-repeat='key in mainCtrl.getPossibleStatusKeys()'
+                ng-click='mainCtrl.setActualStatus(mainCtrl.possibleStatuses[key])'
+        )
       .left
-        .item__tab-element {{ key }}
-      .item__tab-element.right {{ mainCtrl.getSumByObjectState(mainCtrl.possibleStatuses[key]) }}
+        .item__tab-element {{ mainCtrl.possibleStatuses[key].title }}
+      .item__tab-element.right {{ mainCtrl.getSumByObjectState(mainCtrl.possibleStatuses[key].filter) }}
 
-.col-sm-4(ng-repeat='actor in mainCtrl.getActorsByObjectState(mainCtrl.actualStatus)')
+.col-sm-4(ng-repeat='actor in mainCtrl.getActorsByObjectState(mainCtrl.actualStatus.filter)')
   .item__extended-preview-container.item__status(class='{{ actor.status }}')
     .item__element.item__title {{ actor.title }}
     .item__element.item__description {{ actor.description }}
@@ -23,4 +27,4 @@
         img.item__footer-img(src='icons/unstarred.png' ng-hide=' actor.starred ')
       .item__footer.notification
         img.item__footer-img.item__footer-notification_item(src='icons/info.png')
-        .item__footer-notification_text.item__footer-notification_item start3
+        .item__footer-notification_text.item__footer-notification_item Notification

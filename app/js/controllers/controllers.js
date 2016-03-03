@@ -12,11 +12,27 @@ function contains(firstObj, secondObj) {
 function MainCtrl($scope) {
   var me = this;
 
-  me.possibleStatuses = {//pairs "name" : "value" for output form
-    all: {status: ''},
-    problems: {status: 'problems'},
-    warning: {status: 'warning'},
-    normal: {status: 'normal'}
+  me.possibleStatuses = {//pairs 'name' : 'value' for output form
+    all: {
+      title: 'All',
+      type: 'all',
+      filter:{status: ''}
+    },
+    problems: {
+      title: 'Problems',
+      type: 'problems',
+      filter:{status: 'problems'}
+    },
+    warning: {
+      title: 'Warning',
+      type: 'warning',
+      filter:{status: 'warning'}
+    },
+    normal: {
+      title: 'Normal',
+      type: 'normal',
+      filter: {status: 'normal'}
+    }
   };
   me.actualStatus = me.possibleStatuses.all;
 

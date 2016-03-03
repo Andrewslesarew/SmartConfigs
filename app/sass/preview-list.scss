@@ -130,18 +130,19 @@
   background-color: #ccc;
   overflow: hidden;
   vertical-align: middle;
+  height: 30px;
 }
 
 .item__footer {
   border: 0 solid #aaa;
   border-left-width: 1px;
-  display: inline-block;
   height: 30px;
   width: 40px;
   text-align: center;
   float: right;
   overflow: hidden;
   padding: 3px 0;
+  cursor: pointer;
 }
 
 .item__footer-img {
@@ -149,7 +150,7 @@
 }
 
 .item__footer-notification_item {
-  display: inline-block;
+  display: inline;
   padding-right: 5px;
 }
 
@@ -158,6 +159,9 @@
   padding-left: 5px;
   padding-right: 5px;
   width: initial;
+  max-width: 120px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .item__footer-notification_text{
