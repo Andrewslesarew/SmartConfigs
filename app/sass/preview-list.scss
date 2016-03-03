@@ -3,8 +3,6 @@
 //  src: url('../fonts/Play.ttf'); /* Путь к файлу со шрифтом */
 //}
 
-.project__view {
-}
 
 .item__tabs-container {
   border-radius: 5px;
@@ -66,7 +64,7 @@
 
 //-------------------------------
 
-.actor__container {
+.added-actor__container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -74,7 +72,7 @@
   justify-content: space-between;
 }
 
-.actor__preview-description {
+.added-actor__preview-description {
   flex-basis: 300px;
   margin: 5px;
   flex-grow: 1;

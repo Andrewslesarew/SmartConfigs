@@ -36,9 +36,45 @@ function MainCtrl($scope) {
   };
   me.actualStatus = me.possibleStatuses.all;
 
-  me.actors = [];
+  me.addedActors = [];
 
-  me.actors.push(
+  me.libruaryActors = [];
+
+  me.addedActors.push(
+    {
+      title: 'First added actor',
+      description: 'It is first actor, which have description and can be displayed',
+      addingDate: new Date(),
+      liveTime: new Date(),
+      status: 'warning'
+    },
+    {
+      title: 'Second added actor',
+      description: 'It is second actor, which have description and can be displayed',
+      addingDate: new Date(),
+      liveTime: new Date(),
+      starred: true,
+      status: 'normal'
+    },
+    {
+      title: 'Third added actor',
+      description: 'It is third actor, which have description and can be displayed',
+      addingDate: new Date(),
+      liveTime: new Date(),
+      starred: false,
+      status: 'problems'
+    },
+    {
+      title: 'Fourth added actor',
+      description: 'It is fourth actor, which have description and can be displayed',
+      addingDate: new Date(),
+      liveTime: new Date(),
+      starred: false,
+      status: 'normal'
+    }
+  );
+
+  me.libruaryActors.push(
     {
       title: 'First added actor',
       description: 'It is first actor, which have description and can be displayed',
@@ -84,8 +120,8 @@ function MainCtrl($scope) {
   };
   me.getStarredSum = function (starredStatus) {
     var sum = 0;
-    for (var index in me.actors) {
-      if (me.actors[index].starred == starredStatus) {
+    for (var index in me.addedActors) {
+      if (me.addedActors[index].starred == starredStatus) {
         sum++;
       }
     }
@@ -94,22 +130,22 @@ function MainCtrl($scope) {
 
   me.getSumByObjectState = function (objectState) {
     var sum = 0;
-    for (var index in me.actors) {
-      var tmpActor = me.actors[index];
+    for (var index in me.addedActors) {
+      var tmpActor = me.addedActors[index];
       if (contains(objectState, tmpActor)) {
         sum++;
       }
     }
     return sum;
   };
-  me.getActorsByObjectState = function (objectState) {
-    var outActors = [];
-    for (var index in me.actors) {
-      var tmpActor = me.actors[index];
+  me.getAddedActorsByObjectState = function (objectState) {
+    var outAddedActors = [];
+    for (var index in me.addedActors) {
+      var tmpActor = me.addedActors[index];
       if (contains(objectState, tmpActor)) {
-        outActors.push(tmpActor);
+        outAddedActors.push(tmpActor);
       }
     }
-    return outActors;
+    return outAddedActors;
   };
 }

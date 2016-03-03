@@ -1,0 +1,17 @@
+.admin-panel__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: space-between;
+  justify-content: space-between;
+}
+.admin-panel__item {
+
+}
+.admin-panel__item.project-view {
+  flex-grow: 8;
+}
+
+.admin-panel__item.actors-list{
+  flex-grow: 2;
+}
