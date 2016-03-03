@@ -36,7 +36,7 @@ gulp.task('lint', function () {
 
 gulp.task('sass', function () {
   gulp.src(['app/sass/*.scss', 'app/sass/**/*.scss'])
-    .pipe(sass())
+    .pipe(sass({errLogToConsole: true}))
     .pipe(concat('styles.css'))
     .pipe(gulp.dest('./public/build/css'));
 });

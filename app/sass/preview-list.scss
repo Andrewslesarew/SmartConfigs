@@ -1,0 +1,187 @@
+//@font-face {
+//  font-family: ActorsFont;
+//  src: url('../fonts/Play.ttf'); /* Путь к файлу со шрифтом */
+//}
+
+.project__view {
+}
+
+.item__tabs-container {
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.item__tab {
+  background-color: #aaa;
+  color: #888;
+  display: inline-block;
+  padding-left: 5px;
+  font-size: medium;
+  flex-grow: 1;
+}
+
+.item__tab-element {
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.item__tab-element.right{
+  color: #555;
+}
+
+.item__tab:hover {
+  cursor: pointer;
+}
+.item__tab.checked-true{
+  background-color: #00b4ea;
+  color: #fff;
+  cursor: pointer;
+}
+.checked-true > .item__tab-element.right{
+  background-color: #0084b0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.item__tab.checked-false:hover {
+  background-color: #bbb;
+}
+.checked-false:hover > .item__tab-element.right {
+  background-color: #999;
+}
+
+//-------------------------------
+
+.actor__container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.actor__preview-description {
+  flex-basis: 300px;
+  margin: 5px;
+  flex-grow: 1;
+}
+
+//-------------------------------
+.item__extended-preview-container {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #aaa;
+}
+
+.item__status {
+  border-left-style: solid;
+  border-left-width: 4px;
+  border-left-color: gray;
+}
+
+.item__status.problems {
+  border-left-color: red;
+}
+
+.item__status.warning {
+  border-left-color: yellow;
+}
+
+.item__status.normal {
+  border-left-color: green;
+}
+
+.item__element {
+  word-wrap: break-word;
+  margin: 0 10px;
+}
+
+.item__title {
+  font-size: 22px;
+  height: 24px;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.item__description {
+  font-size: 14px;
+  color: gray;
+  height: 56px;
+  overflow: hidden;
+}
+
+.item__note_container {
+  padding: 2px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.item__note {
+  display: inline-block;
+}
+
+.item__note.icon {
+  margin-right: 10px;
+  max-height: 24px;
+}
+
+.item__note.text {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.item__footer-container {
+  background-color: #ccc;
+  overflow: hidden;
+  vertical-align: middle;
+  height: 30px;
+}
+
+.item__footer {
+  border: 0 solid #aaa;
+  border-left-width: 1px;
+  height: 30px;
+  width: 40px;
+  text-align: center;
+  float: right;
+  overflow: hidden;
+  padding: 3px 0;
+  cursor: pointer;
+}
+
+.item__footer-img {
+  max-height: 24px;
+}
+
+.item__footer-notification_item {
+  display: inline;
+  padding-right: 5px;
+}
+
+.item__footer.notification {
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: initial;
+  max-width: 120px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item__footer-notification_text{
+  font-size: medium;
+}
