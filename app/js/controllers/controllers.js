@@ -1,15 +1,24 @@
 'use strict';
 
+function contains(firstObj, secondObj) {
+  for (var key in firstObj) {
+    if (!secondObj.hasOwnProperty(key) || secondObj[key].search(firstObj[key])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 function MainCtrl($scope) {
   var me = this;
 
-  me.actualStatus = '';
   me.possibleStatuses = {//pairs "name" : "value" for output form
-    all: '',
-    warning: 'warning',
-    problems: 'problems',
-    normal: 'normal'
+    all: {status: ''},
+    problems: {status: 'problems'},
+    warning: {status: 'warning'},
+    normal: {status: 'normal'}
   };
+  me.actualStatus = me.possibleStatuses.all;
 
   me.actors = [];
 
@@ -27,6 +36,22 @@ function MainCtrl($scope) {
       addingDate: new Date(),
       liveTime: new Date(),
       starred: true,
+      status: 'normal'
+    },
+    {
+      title: 'Third added actor',
+      description: 'It is third actor, which have description and can be displayed',
+      addingDate: new Date(),
+      liveTime: new Date(),
+      starred: false,
+      status: 'problems'
+    },
+    {
+      title: 'Fourth added actor',
+      description: 'It is fourth actor, which have description and can be displayed',
+      addingDate: new Date(),
+      liveTime: new Date(),
+      starred: false,
       status: 'normal'
     }
   );
@@ -51,20 +76,21 @@ function MainCtrl($scope) {
     return sum;
   };
 
-  me.getStatusSum = function (statusName) {
+  me.getSumByObjectState = function (objectState) {
     var sum = 0;
     for (var index in me.actors) {
-      if (me.actors[index].status.search(statusName) != -1) {
+      var tmpActor = me.actors[index];
+      if (contains(objectState, tmpActor)) {
         sum++;
       }
     }
     return sum;
   };
-  me.getActorsByStatus = function (statusName) {
+  me.getActorsByObjectState = function (objectState) {
     var outActors = [];
     for (var index in me.actors) {
       var tmpActor = me.actors[index];
-      if (tmpActor.status.search(statusName) != -1) {
+      if (contains(objectState, tmpActor)) {
         outActors.push(tmpActor);
       }
     }
