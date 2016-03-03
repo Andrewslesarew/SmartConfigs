@@ -62,12 +62,26 @@
 }
 
 //-------------------------------
+
+.actor__container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.actor__preview-description {
+  flex-basis: 300px;
+  margin: 5px;
+  flex-grow: 1;
+}
+
+//-------------------------------
 .item__extended-preview-container {
   border-style: solid;
   border-width: 1px;
   border-color: #aaa;
-  margin: 1px;
-  padding: 5px 0 0 0;
 }
 
 .item__status {
