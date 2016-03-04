@@ -12,6 +12,11 @@ function ActorPreviewListDirective() {
   return {
     replace: true,
     restrict: 'E',
-    templateUrl: 'templates/actors-libruary-list.html'
+    templateUrl: 'templates/actors-libruary-list.html',
+    controller: function () {
+      var me = this;
+      me.actors = getActors();
+    },
+    controllerAs: 'actorsLibruaryCtrl'
   }
 }

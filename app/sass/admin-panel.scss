@@ -6,12 +6,12 @@
   justify-content: space-between;
 }
 .admin-panel__item {
-
+  flex-basis:8%;
 }
 .admin-panel__item.project-view {
   flex-grow: 8;
 }
 
-.admin-panel__item.actors-list{
+.admin-panel__item.actors-list {
   flex-grow: 2;
 }

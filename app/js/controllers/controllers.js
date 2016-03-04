@@ -9,9 +9,15 @@ function contains(firstObj, secondObj) {
   return true;
 }
 
-function MainCtrl($scope) {
+function MainCtrl() {
   var me = this;
+  me.addedActors = [];
 
+  me.libruaryActors = [];
+
+  me.possibleStatuses = {};
+
+  //------------------------------May be, will be getted from backend or generated on front:
   me.possibleStatuses = {//pairs 'name' : 'value' for output form
     all: {
       title: 'All',
@@ -35,79 +41,11 @@ function MainCtrl($scope) {
     }
   };
   me.actualStatus = me.possibleStatuses.all;
-
-  me.addedActors = [];
-
-  me.libruaryActors = [];
-
-  me.addedActors.push(
-    {
-      title: 'First added actor',
-      description: 'It is first actor, which have description and can be displayed',
-      addingDate: new Date(),
-      liveTime: new Date(),
-      status: 'warning'
-    },
-    {
-      title: 'Second added actor',
-      description: 'It is second actor, which have description and can be displayed',
-      addingDate: new Date(),
-      liveTime: new Date(),
-      starred: true,
-      status: 'normal'
-    },
-    {
-      title: 'Third added actor',
-      description: 'It is third actor, which have description and can be displayed',
-      addingDate: new Date(),
-      liveTime: new Date(),
-      starred: false,
-      status: 'problems'
-    },
-    {
-      title: 'Fourth added actor',
-      description: 'It is fourth actor, which have description and can be displayed',
-      addingDate: new Date(),
-      liveTime: new Date(),
-      starred: false,
-      status: 'normal'
-    }
-  );
-
-  me.libruaryActors.push(
-    {
-      title: 'First added actor',
-      description: 'It is first actor, which have description and can be displayed',
-      addingDate: new Date(),
-      liveTime: new Date(),
-      status: 'warning'
-    },
-    {
-      title: 'Second added actor',
-      description: 'It is second actor, which have description and can be displayed',
-      addingDate: new Date(),
-      liveTime: new Date(),
-      starred: true,
-      status: 'normal'
-    },
-    {
-      title: 'Third added actor',
-      description: 'It is third actor, which have description and can be displayed',
-      addingDate: new Date(),
-      liveTime: new Date(),
-      starred: false,
-      status: 'problems'
-    },
-    {
-      title: 'Fourth added actor',
-      description: 'It is fourth actor, which have description and can be displayed',
-      addingDate: new Date(),
-      liveTime: new Date(),
-      starred: false,
-      status: 'normal'
-    }
-  );
-
+  //-------------------------------------------end of statuses filling
+  //----------------------------------- Start of filling datas
+  me.libruaryActors = getAddedActors();
+  me.addedActors = me.libruaryActors;
+  //----------------------------------- End of filling datas
   me.setActualStatus = function (newValue) {
     me.actualStatus = newValue;
   };
