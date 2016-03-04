@@ -1,0 +1,19 @@
+.actor__preview-description
+    .item__extended-preview-container.item__status(class='{{ actor.status }}')
+        .item__element.item__title {{ actor.title }}
+        .item__element.item__description {{ actor.description }}
+
+        .item__element.item__note_container(ng-show='actor.addingDate')
+            img.item__note.icon(src='icons/calendar.png')
+            .item__note.text {{ actor.addingDate | date : 'dd MMMM yyyy' }}
+        .item__element.item__note_container(ng-show='actor.liveTime')
+            img.item__note.icon(src='icons/time.png')
+            .item__note.text {{ actor.liveTime | date : 'HH:mm' }}
+
+        .item__footer-container
+            .item__footer(ng-click='mainCtrl.toStar(actor)')
+                img.item__footer-img(src='icons/starred.png' ng-show=' actor.starred ')
+                img.item__footer-img(src='icons/unstarred.png' ng-hide=' actor.starred ')
+            .item__footer.notification
+                img.item__footer-img.item__footer-notification_item(src='icons/info.png')
+                .item__footer-notification_text.item__footer-notification_item Notification

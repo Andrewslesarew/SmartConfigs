@@ -1,0 +1,12 @@
+div
+    .item__tabs-container
+        .item__tab(
+                class='{{ addedActorsCtrl.getStatuses()[key].type }} checked-{{ addedActorsCtrl.getStatuses()[key] == addedActorsCtrl.actualStatus }}'
+                ng-repeat='key in mainCtrl.getObjectKeys(addedActorsCtrl.getStatuses())'
+                ng-click='addedActorsCtrl.setActualStatus(addedActorsCtrl.getStatuses()[key])'
+                )
+            .left
+                .item__tab-element {{ addedActorsCtrl.getStatuses()[key].title }}
+            .item__tab-element.right {{ mainCtrl.getSumByObjectState(addedActorsCtrl.actors, addedActorsCtrl.getStatuses()[key].filter) }}
+    .actor__container
+        actor-preview(ng-repeat='actor in mainCtrl.getActorsByObjectState(addedActorsCtrl.actors, addedActorsCtrl.actualStatus.filter)')

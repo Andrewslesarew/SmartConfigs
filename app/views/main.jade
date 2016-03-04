@@ -1,35 +1,5 @@
 .admin-panel__container
   .admin-panel__item.actors-list
-    .libruary-actor__container
-      actors-libruary
+    actors-libruary
   .admin-panel__item.project-view
-    .item__tabs-container
-      .item__tab(
-                  class='{{ mainCtrl.possibleStatuses[key].type }} checked-{{ mainCtrl.possibleStatuses[key] == mainCtrl.actualStatus }}'
-                  ng-repeat='key in mainCtrl.getPossibleStatusKeys()'
-                  ng-click='mainCtrl.setActualStatus(mainCtrl.possibleStatuses[key])'
-          )
-        .left
-          .item__tab-element {{ mainCtrl.possibleStatuses[key].title }}
-        .item__tab-element.right {{ mainCtrl.getSumByObjectState(mainCtrl.possibleStatuses[key].filter) }}
-
-    .added-actor__container
-      .added-actor__preview-description(ng-repeat='actor in mainCtrl.getAddedActorsByObjectState(mainCtrl.actualStatus.filter)')
-        .item__extended-preview-container.item__status(class='{{ actor.status }}')
-          .item__element.item__title {{ actor.title }}
-          .item__element.item__description {{ actor.description }}
-
-          .item__element.item__note_container
-            img.item__note.icon(src='icons/calendar.png')
-            .item__note.text {{ actor.addingDate | date : 'dd MMMM yyyy' }}
-          .item__element.item__note_container
-            img.item__note.icon(src='icons/time.png')
-            .item__note.text {{ actor.liveTime | date : 'HH:mm' }}
-
-          .item__footer-container
-            .item__footer(ng-click='mainCtrl.toStar(actor)')
-              img.item__footer-img(src='icons/starred.png' ng-show=' actor.starred ')
-              img.item__footer-img(src='icons/unstarred.png' ng-hide=' actor.starred ')
-            .item__footer.notification
-              img.item__footer-img.item__footer-notification_item(src='icons/info.png')
-              .item__footer-notification_text.item__footer-notification_item Notification
+    added-actors

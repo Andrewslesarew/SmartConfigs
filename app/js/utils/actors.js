@@ -6,6 +6,7 @@ var knowedActors = [
     description: 'It is first actor, which have description and can be displayed',
     addingDate: new Date(),
     liveTime: new Date(),
+    starred: false,
     status: 'warning'
   },
   {
@@ -19,9 +20,9 @@ var knowedActors = [
   {
     title: 'Third added actor',
     description: 'It is third actor, which have description and can be displayed',
+    starred: false
     //addingDate: new Date(),
     //liveTime: new Date(),
-    //starred: false,
     //status: 'problems'
   },
   {
@@ -33,6 +34,55 @@ var knowedActors = [
     status: 'normal'
   }
 ];
+
+var allStatuses = {//pairs 'name' : 'value' for output form
+  all: {
+    title: 'All',
+    type: 'all',
+    filter:{}
+  },
+  problems: {
+    title: 'Problems',
+    type: 'problems',
+    filter:{status: 'problems'}
+  },
+  warning: {
+    title: 'Warning',
+    type: 'warning',
+    filter:{status: 'warning'}
+  },
+  normal: {
+    title: 'Normal',
+    type: 'normal',
+    filter: {status: 'normal'}
+  }
+};
+
+var previewStatuses = {//pairs 'name' : 'value' for output form
+  all: {
+    title: 'All',
+    type: 'all',
+    filter:{}
+  },
+  starred: {
+    title: 'Starred',
+    type: 'starred',
+    filter:{starred: true}
+  },
+  unstarred: {
+    title: 'Unstarred',
+    type: 'unstarred',
+    filter:{starred: false}
+  }
+};
+
+function getPreviewStatuses() {
+  return previewStatuses;
+}
+
+function getAllStatuses() {
+  return allStatuses;
+}
 
 function getActors() {
   return knowedActors;

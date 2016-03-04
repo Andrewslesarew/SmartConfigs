@@ -15,6 +15,10 @@
   text-align: center;
 }
 
+.item__tabs-container.vertical {
+  flex-direction: column;
+}
+
 .item__tab {
   background-color: #aaa;
   color: #888;
@@ -60,22 +64,6 @@
 }
 .checked-false:hover > .item__tab-element.right {
   background-color: #999;
-}
-
-//-------------------------------
-
-.added-actor__container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: space-between;
-}
-
-.added-actor__preview-description {
-  flex-basis: 300px;
-  margin: 5px;
-  flex-grow: 1;
 }
 
 //-------------------------------
@@ -146,13 +134,13 @@
   background-color: #ccc;
   overflow: hidden;
   vertical-align: middle;
-  height: 30px;
+  height: 24px;
 }
 
 .item__footer {
   border: 0 solid #aaa;
   border-left-width: 1px;
-  height: 30px;
+  height: inherit;
   width: 40px;
   text-align: center;
   float: right;
@@ -162,7 +150,7 @@
 }
 
 .item__footer-img {
-  max-height: 24px;
+  max-height: 18px;
 }
 
 .item__footer-notification_item {
@@ -181,5 +169,5 @@
 }
 
 .item__footer-notification_text{
-  font-size: medium;
+  font-size: 14px;
 }

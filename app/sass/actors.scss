@@ -1,0 +1,13 @@
+.actor__container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.actor__preview-description {
+  flex-basis: 300px;
+  margin: 5px;
+  flex-grow: 1;
+}

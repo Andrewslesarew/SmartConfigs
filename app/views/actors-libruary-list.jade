@@ -1,1 +1,15 @@
-libruary-actor(ng-repeat='actor in actorsLibruaryCtrl.actors')
+div
+    .libruary-actor__block-title Filters
+        .item__tabs-container.vertical
+             .item__tab(
+                     class='{{ actorsLibruaryCtrl.getStatuses()[key].type }} checked-{{ actorsLibruaryCtrl.getStatuses()[key] == actorsLibruaryCtrl.actualStatus }}'
+                     ng-repeat='key in mainCtrl.getObjectKeys(actorsLibruaryCtrl.getStatuses())'
+                     ng-click='actorsLibruaryCtrl.setActualStatus(actorsLibruaryCtrl.getStatuses()[key])'
+                     )
+                 .left
+                     .item__tab-element {{ actorsLibruaryCtrl.getStatuses()[key].title }}
+                 .item__tab-element.right {{ mainCtrl.getSumByObjectState(actorsLibruaryCtrl.actors, actorsLibruaryCtrl.getStatuses()[key].filter) }}
+
+    .libruary-actor__block-title Actors
+    .libruary-actor__container
+        actor-mini-preview(ng-repeat='actor in mainCtrl.getActorsByObjectState(actorsLibruaryCtrl.actors, actorsLibruaryCtrl.actualStatus.filter)')

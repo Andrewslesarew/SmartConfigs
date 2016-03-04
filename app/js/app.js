@@ -8,5 +8,7 @@ var appModule = angular.module('configApp', ['ngRoute', 'config.services','confi
   }]);
 
 appModule.controller('MainCtrl', MainCtrl);
-appModule.directive('libruaryActor', ActorPreviewDirective);
+appModule.directive('actorPreview', ActorPreviewDirective);
+appModule.directive('actorMiniPreview', ActorMiniPreviewDirective);
 appModule.directive('actorsLibruary', ActorPreviewListDirective);
+appModule.directive('addedActors', AddedActorsDirective);
