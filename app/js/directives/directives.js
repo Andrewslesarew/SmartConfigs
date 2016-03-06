@@ -47,6 +47,9 @@ function AddedActorsDirective() {
       };
 
       me.containObject = function (array, object) {
+        if (!array || !object) { // if null
+          return false;
+        }
         for (var index in array) {
           if (array[index] == object) {
             return true;
@@ -57,6 +60,9 @@ function AddedActorsDirective() {
 
       me.addActor = function ($scope, $event) {
         var newObj = $event.data;
+        if (!newObj) {
+          return;
+        }
         if (!me.containObject(me.actors, newObj)) {
           me.actors.push(newObj);
           newObj.addingDate = new Date();

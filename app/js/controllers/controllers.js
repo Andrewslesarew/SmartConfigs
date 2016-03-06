@@ -46,4 +46,8 @@ function MainCtrl() {
   me.getObjectKeys = function (object) {
     return Object.keys(object);
   };
+
+  me.alert = function (string) {
+    alert(string);
+  }
 }

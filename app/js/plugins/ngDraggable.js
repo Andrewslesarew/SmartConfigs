@@ -47,7 +47,7 @@ angular.module('ngDraggable', [])
         // deregistration function for mouse move events in $rootScope triggered by jqLite trigger handler
         var _deregisterRootMoveListener = angular.noop;
 
-        var _dragDelay = 500;
+        var _dragDelay = 20;
 
         var initialize = function () {
           element.attr('draggable', 'false'); // prevent native drag

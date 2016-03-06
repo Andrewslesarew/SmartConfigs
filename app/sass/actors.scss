@@ -11,11 +11,13 @@
   margin: 5px;
   flex-grow: 1;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .actor__preview-description.dragging {
   border-width: 2px;
   border-style: dashed;
-  border-color: #aaa;
+  border-color: #777;
   border-radius: 4px;
+  cursor: move;
 }
