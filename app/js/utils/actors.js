@@ -55,6 +55,11 @@ var allStatuses = {//pairs 'name' : 'value' for output form
     title: 'Normal',
     type: 'normal',
     filter: {status: 'normal'}
+  },
+  new: {
+    title: 'New actors',
+    type: 'newActors',
+    filter: {status: 'new'}
   }
 };
 

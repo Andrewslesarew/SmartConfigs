@@ -45,6 +45,25 @@ function AddedActorsDirective() {
       me.getStatuses = function () {
         return me.statuses;
       };
+
+      me.containObject = function (array, object) {
+        for (var index in array) {
+          if (array[index] == object) {
+            return true;
+          }
+        }
+        return false;
+      };
+
+      me.addActor = function ($scope, $event) {
+        var newObj = $event.data;
+        if (!me.containObject(me.actors, newObj)) {
+          me.actors.push(newObj);
+          newObj.addingDate = new Date();
+          newObj.liveTime = new Date();
+          newObj.status = 'new';
+        }
+      };
     },
     controllerAs: 'addedActorsCtrl'
   }

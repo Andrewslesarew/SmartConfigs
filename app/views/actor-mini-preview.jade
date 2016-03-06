@@ -1,8 +1,7 @@
 .actor__preview-description
-    .item__extended-preview-container
+    div
         .item__element.item__title {{ actor.title }}
         .item__element.item__description {{ actor.description }}
-        .item__footer-container
-            .item__footer(ng-click='mainCtrl.toStar(actor)')
-                img.item__footer-img(src='icons/starred.png' ng-show=' actor.starred ')
-                img.item__footer-img(src='icons/unstarred.png' ng-hide=' actor.starred ')
+        .item__footer(ng-click='mainCtrl.toStar(actor)')
+            img.item__footer-img(src='icons/starred.png' ng-show=' actor.starred ')
+            img.item__footer-img(src='icons/unstarred.png' ng-hide=' actor.starred ')

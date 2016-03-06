@@ -8,5 +8,5 @@ div
             .left
                 .item__tab-element {{ addedActorsCtrl.getStatuses()[key].title }}
             .item__tab-element.right {{ mainCtrl.getSumByObjectState(addedActorsCtrl.actors, addedActorsCtrl.getStatuses()[key].filter) }}
-    .actor__container
+    .actor__container(ng-drop='true' ng-drop-success="addedActorsCtrl.addActor($scope, $event)")
         actor-preview(ng-repeat='actor in mainCtrl.getActorsByObjectState(addedActorsCtrl.actors, addedActorsCtrl.actualStatus.filter)')

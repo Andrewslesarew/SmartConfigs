@@ -10,4 +10,12 @@
   flex-basis: 300px;
   margin: 5px;
   flex-grow: 1;
+  overflow: hidden;
+}
+
+.actor__preview-description.dragging {
+  border-width: 2px;
+  border-style: dashed;
+  border-color: #aaa;
+  border-radius: 4px;
 }
