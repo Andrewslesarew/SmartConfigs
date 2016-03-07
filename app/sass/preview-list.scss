@@ -13,6 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  background-color: #ddd;
 }
 
 .item__tabs-container.vertical {
@@ -20,8 +21,6 @@
 }
 
 .item__tab {
-  background-color: #aaa;
-  color: #888;
   display: inline-block;
   padding-left: 5px;
   font-size: medium;
@@ -54,23 +53,20 @@
   cursor: pointer;
 }
 .checked-true > .item__tab-element.right{
-  background-color: #0084b0;
+  background-color: #00a3d9;
   color: #fff;
   cursor: pointer;
 }
 
 .item__tab.checked-false:hover {
-  background-color: #bbb;
-}
-.checked-false:hover > .item__tab-element.right {
-  background-color: #999;
+  background-color: #d0d0d0;
 }
 
 //-------------------------------
 .item__extended-preview-container {
   border-style: solid;
   border-width: 1px;
-  border-color: #aaa;
+  border-color: #aaaaaa;
 }
 
 .item__status {

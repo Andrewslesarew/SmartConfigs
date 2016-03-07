@@ -8,6 +8,7 @@
 
 .admin-panel__item {
   flex-basis:8%;
+  margin: 5px;
 }
 
 @media (min-width: 590px) {
@@ -17,7 +18,7 @@
 
   .admin-panel__item.actors-list {
     flex-grow: 2;
-    background: #ddd;
+    background: #ededed;
     min-width: 210px;
   }
 }

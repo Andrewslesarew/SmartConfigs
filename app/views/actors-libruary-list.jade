@@ -8,7 +8,8 @@ div
                      )
                  .left
                      .item__tab-element {{ actorsLibruaryCtrl.getStatuses()[key].title }}
-                 .item__tab-element.right {{ mainCtrl.getSumByObjectState(actorsLibruaryCtrl.actors, actorsLibruaryCtrl.getStatuses()[key].filter) }}
+                 .right
+                    .item__tab-element {{ mainCtrl.getSumByObjectState(actorsLibruaryCtrl.actors, actorsLibruaryCtrl.getStatuses()[key].filter) }}
 
     .libruary-actor__block-title Actors
     .libruary-actor__container
