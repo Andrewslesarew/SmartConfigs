@@ -8,5 +8,9 @@ div
             .left
                 .item__tab-element {{ addedActorsCtrl.getStatuses()[key].title }}
             .item__tab-element.right {{ mainCtrl.getSumByObjectState(addedActorsCtrl.actors, addedActorsCtrl.getStatuses()[key].filter) }}
+    //.trash-place(ng-drop="true" ng-drop-success="  " ng-show=" addedActorsCtrl.dragging ")
+    //    p Move to this place
+    //    p for removing the actor
     .actor__container(ng-drop="true" ng-drop-success=" addedActorsCtrl.addActor($scope, $event) ")
-        actor-preview(ng-drag="true" ng-drag-data=" actor " ng-repeat='actor in mainCtrl.getActorsByObjectState(addedActorsCtrl.actors, addedActorsCtrl.actualStatus.filter)')
+        actor-preview(actor=" addedActorsCtrl.getEmptyActor() " ng-show=" addedActorsCtrl.actorsListIsEmpty() ")
+        actor-preview(actor=" actor " ng-drag="true" ng-drag-success=" addedActorsCtrl.removeActor($scope, $event) " ng-drag-data=" actor " ng-repeat='actor in mainCtrl.getActorsByObjectState(addedActorsCtrl.actors, addedActorsCtrl.actualStatus.filter)')

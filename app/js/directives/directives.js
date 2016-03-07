@@ -32,6 +32,14 @@ function AddedActorsDirective() {
     templateUrl: 'templates/added-actors-list.html',
     controller: function () {
       var me = this;
+
+      me.emptyActor = {
+        title: 'This is example of actor',
+        description: 'Please, drop to this place actors from the left listthat you want to use in your project',
+        addingDate: new Date(),
+        liveTime: new Date()
+      };
+
       me.actors = getAddedActors();
 
       me.statuses = getAllStatuses();
@@ -40,6 +48,10 @@ function AddedActorsDirective() {
 
       me.setActualStatus = function (newActualStatus) {
         me.actualStatus = newActualStatus;
+      };
+
+      me.getEmptyActor = function () {
+        return me.emptyActor;
       };
 
       me.getStatuses = function () {
@@ -60,27 +72,42 @@ function AddedActorsDirective() {
 
       me.addActor = function ($scope, $event) {
         var newObj = $event.data;
-        if (!newObj) {
+        if (!newObj || me.containObject(me.actors, newObj)) {
           return;
         }
-        if (!me.containObject(me.actors, newObj)) {
-          me.actors.push(newObj);
-          newObj.addingDate = new Date();
-          newObj.liveTime = new Date();
-          newObj.status = 'new';
+        me.actors.push(newObj);
+        newObj.addingDate = new Date();
+        newObj.liveTime = new Date();
+        newObj.status = 'new';
+      };
+
+      me.removeActor = function ($scope, $event) {
+        var removeActor = $event.data;
+        if (!removeActor || !me.containObject(me.actors, removeActor)) {
+          return;
         }
+        me.actors.splice(me.actors.indexOf(removeActor), 1);
+        removeActor.addingDate = undefined;
+        removeActor.liveTime = undefined;
+        removeActor.status = undefined;
+      };
+
+      me.actorsListIsEmpty = function () {
+        return me.actors.length == 0;
       };
     },
     controllerAs: 'addedActorsCtrl'
   }
 }
 
-function ActorPreviewDirective() {
+function ActorPreviewDirective($parse) {
   return {
     replace: true,
     restrict: 'E',
     templateUrl: 'templates/actor-preview.html',
-    controller: function () {
+    controller: function ($scope, $element, $attrs) {
+      var me = this;
+      me.actor = $parse($attrs.actor)($scope);//getting the actor from actor attribute
     },
     controllerAs: 'actorPreviewCtrl'
   }

@@ -9,7 +9,7 @@ appModule.config(['$routeProvider', function ($routeProvider) {
   }]);
 
 appModule.controller('MainCtrl', MainCtrl);
-appModule.directive('actorPreview', ActorPreviewDirective);
+appModule.directive('actorPreview', ['$parse', ActorPreviewDirective]);
 appModule.directive('actorMiniPreview', ActorMiniPreviewDirective);
 appModule.directive('actorsLibruary', ActorPreviewListDirective);
 appModule.directive('addedActors', AddedActorsDirective);
