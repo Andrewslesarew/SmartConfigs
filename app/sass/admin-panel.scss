@@ -5,14 +5,34 @@
   align-content: space-between;
   justify-content: space-between;
 }
+
 .admin-panel__item {
   flex-basis:8%;
 }
-.admin-panel__item.project-view {
-  flex-grow: 8;
+
+@media (min-width: 590px) {
+  .admin-panel__item.project-view {
+    flex-grow: 8;
+  }
+
+  .admin-panel__item.actors-list {
+    flex-grow: 2;
+    background: #ddd;
+    min-width: 210px;
+  }
 }
 
-.admin-panel__item.actors-list {
-  flex-grow: 2;
-  background: #ddd;
+@media (max-width: 589px) {
+  .admin-panel__container {
+    flex-direction: column;
+  }
+
+  .admin-panel__item.project-view {
+    flex-grow: 1;
+  }
+
+  .admin-panel__item.actors-list {
+    flex-grow: 1;
+    background: #ddd;
+  }
 }

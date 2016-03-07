@@ -47,7 +47,7 @@ angular.module('ngDraggable', [])
         // deregistration function for mouse move events in $rootScope triggered by jqLite trigger handler
         var _deregisterRootMoveListener = angular.noop;
 
-        var _dragDelay = attrs.ngDragDelay || 50;
+        var _dragDelay = attrs.ngDragDelay || 150;
 
         var initialize = function () {
           element.attr('draggable', 'false'); // prevent native drag
@@ -123,17 +123,15 @@ angular.module('ngDraggable', [])
             return;
           }
 
-          if (!_hasTouch) {
-            cancelPress();
-            _pressTimer = setTimeout(function () {
+          cancelPress();
+          _pressTimer = setTimeout(
+            function () {
               cancelPress();
               onlongpress(evt);
-            }, _dragDelay);
-            $document.on(_moveEvents, cancelPress);
-            $document.on(_releaseEvents, cancelPress);
-          } else {
-            onlongpress(evt);
-          }
+            },
+            _dragDelay);
+          $document.on(_moveEvents, cancelPress);
+          $document.on(_releaseEvents, cancelPress);
 
         };
 
@@ -154,7 +152,10 @@ angular.module('ngDraggable', [])
           if (allowTransform) {
             _dragOffset = offset;
           } else {
-            _dragOffset = {left: document.body.scrollLeft, top: document.body.scrollTop};
+            _dragOffset = {
+              left: document.body.scrollLeft,
+              top: document.body.scrollTop
+            };
           }
 
           element.centerX = element[0].offsetWidth / 2;
